@@ -6,6 +6,7 @@ import { DescriptionPanel } from './DescriptionPanel';
 
 interface HistoryCardProps {
   project: Project;
+  onDelete: (id: number) => void;
 }
 
 function formatDate(dateStr: string): string {
@@ -19,7 +20,7 @@ function formatDate(dateStr: string): string {
   });
 }
 
-export function HistoryCard({ project }: HistoryCardProps) {
+export function HistoryCard({ project, onDelete }: HistoryCardProps) {
   const [expanded, setExpanded] = useState(false);
   const keywordCount = project.outputs
     ? project.outputs.keywords.high_intent.length + project.outputs.keywords.informational.length
@@ -36,8 +37,28 @@ export function HistoryCard({ project }: HistoryCardProps) {
         onKeyDown={e => e.key === 'Enter' && setExpanded(true)}
       >
         <div className="history-card-header">
-          <div className="history-card-name">{project.businessName}</div>
-          <div className="history-card-badge">{project.category.split(' / ')[0]}</div>
+          <div>
+            <div className="history-card-name">{project.businessName}</div>
+            <div className="history-card-badge" style={{ marginTop: '4px' }}>{project.category.split(' / ')[0]}</div>
+          </div>
+          <button 
+            className="btn-icon" 
+            style={{ 
+              background: 'transparent', 
+              border: 'none', 
+              color: 'var(--text-muted)', 
+              cursor: 'pointer',
+              fontSize: '1.2rem',
+              padding: '4px'
+            }}
+            title="Delete this project"
+            onClick={(e) => {
+              e.stopPropagation();
+              onDelete(project.id);
+            }}
+          >
+            🗑️
+          </button>
         </div>
 
         <div className="history-card-meta">

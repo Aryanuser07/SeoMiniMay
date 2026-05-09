@@ -23,3 +23,7 @@ export async function getProjectById(id: number): Promise<Project> {
   const response = await api.get<{ success: boolean; data: Project }>(`/history/${id}`);
   return response.data.data;
 }
+
+export async function deleteProject(id: number): Promise<void> {
+  await api.delete(`/history/${id}`);
+}

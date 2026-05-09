@@ -87,6 +87,17 @@ function getProjectById(id) {
   return formatProject(project, output);
 }
 
+function deleteProjectById(id) {
+  const projectExists = data.projects.some(p => p.id === id);
+  if (!projectExists) return false;
+  
+  data.projects = data.projects.filter(p => p.id !== id);
+  data.outputs = data.outputs.filter(o => o.project_id !== id);
+  persist();
+  console.log('[DB] Deleted project ID:', id);
+  return true;
+}
+
 console.log('[DB] JSON database ready at', DB_PATH);
 
-module.exports = { saveProject, saveOutputs, getAllProjects, getProjectById };
+module.exports = { saveProject, saveOutputs, getAllProjects, getProjectById, deleteProjectById };

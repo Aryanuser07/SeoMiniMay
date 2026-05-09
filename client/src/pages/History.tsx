@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getHistory } from '../services/api';
+import { getHistory, deleteProject } from '../services/api';
 import type { Project } from '../types';
 import { HistoryCard } from '../components/HistoryCard';
 
@@ -24,6 +24,19 @@ export function History({ onNavigateToGenerate }: HistoryProps) {
       }
     })();
   }, []);
+
+  const handleDelete = async (id: number) => {
+    try {
+      // Optimistic update
+      setProjects(prev => prev.filter(p => p.id !== id));
+      await deleteProject(id);
+    } catch {
+      alert('Failed to delete project. Please try again.');
+      // Revert if failed
+      const data = await getHistory();
+      setProjects(data);
+    }
+  };
 
   return (
     <div className="page">
@@ -82,7 +95,11 @@ export function History({ onNavigateToGenerate }: HistoryProps) {
             </div>
             <div className="history-grid">
               {projects.map(project => (
-                <HistoryCard key={project.id} project={project} />
+                <HistoryCard 
+                  key={project.id} 
+                  project={project} 
+                  onDelete={handleDelete} 
+                />
               ))}
             </div>
           </>
