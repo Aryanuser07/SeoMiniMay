@@ -1,4 +1,4 @@
-# LocalSEO AI 🚀
+# LocalSEO AI 
 
 LocalSEO AI is a full-stack web application designed to help local businesses automatically generate high-quality, SEO-optimized content. By simply entering a business name, category, and location, the application leverages advanced LLMs (via OpenRouter) to generate targeted keywords, an engaging Google Business Profile post, and a comprehensive website landing page description.
 
@@ -231,10 +231,3 @@ Two collections stored in `localseo.db.json`:
 | `GET` | `/api/health` | Server health check |
 
 ---
-
-## ⚠️ Known Limitations & Future Improvements
-
-- **JSON DB**: For production, would replace with PostgreSQL + JSONB columns for indexed keyword queries and multi-user support.
-- **Sequential chain**: Steps run one-by-one (~10-15s total). Steps without dependencies could be parallelized with `Promise.all()`.
-- **No auth**: Currently single-user only, no multi-tenant support.
-- **Keywords encoding**: Stored as JSON strings in the flat-file DB. In PostgreSQL this would be a native JSONB column for direct querying.
