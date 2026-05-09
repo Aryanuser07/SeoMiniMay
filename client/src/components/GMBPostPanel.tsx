@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 interface GMBPostPanelProps {
   post: string;
@@ -32,7 +33,9 @@ export function GMBPostPanel({ post }: GMBPostPanelProps) {
         </button>
       </div>
 
-      <div className="gmb-post-text">{post}</div>
+      <div className="gmb-post-text markdown-body">
+        <ReactMarkdown>{post}</ReactMarkdown>
+      </div>
 
       <div style={{
         marginTop: '12px',

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 interface DescriptionPanelProps {
   description: string;
@@ -13,15 +14,13 @@ export function DescriptionPanel({ description }: DescriptionPanelProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const paragraphs = description.split(/\n\n+/).filter(p => p.trim());
-
   return (
     <div className="card" style={{ borderColor: 'var(--accent-amber-border)' }}>
       <div className="card-header">
         <div className="card-icon card-icon-amber">📄</div>
         <div style={{ flex: 1 }}>
           <div className="card-title">SEO Business Description</div>
-          <div className="card-subtitle">{paragraphs.length} paragraphs · landing page ready</div>
+          <div className="card-subtitle">landing page ready</div>
         </div>
         <button
           id="copy-desc-btn"
@@ -32,10 +31,8 @@ export function DescriptionPanel({ description }: DescriptionPanelProps) {
         </button>
       </div>
 
-      <div className="description-paragraphs">
-        {paragraphs.map((para, i) => (
-          <p key={i} className="description-paragraph">{para.trim()}</p>
-        ))}
+      <div className="description-paragraphs markdown-body">
+        <ReactMarkdown>{description}</ReactMarkdown>
       </div>
 
       <div style={{
