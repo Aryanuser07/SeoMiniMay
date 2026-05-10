@@ -670,8 +670,12 @@ body {
 }
 
 .history-card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.72rem;
-  padding: 3px 10px;
+  line-height: 1;
+  padding: 6px 12px;
   border-radius: var(--radius-pill);
   background: var(--accent-violet-dim);
   color: var(--accent-violet-light);
