@@ -47,7 +47,6 @@ export function Generate() {
       {/* Hero */}
       <div className="hero">
         <div className="hero-badge">
-          <span>✨</span>
           <span>Powered by Gemini AI</span>
         </div>
         <h1 className="hero-title">
@@ -83,7 +82,9 @@ export function Generate() {
             )}
           </>
         ) : step !== 'done' ? (
-          <LoadingState currentStep={step} />
+          <div className="loading-wrapper" style={{ padding: '20px 0 60px' }}>
+            <LoadingState currentStep={step} />
+          </div>
         ) : null}
 
         {/* Output Panels */}

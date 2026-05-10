@@ -9,19 +9,19 @@ const STEPS = [
     id: 'keywords' as GenerationStep,
     label: 'Generating Keywords',
     desc: 'Analyzing your business and creating intent-grouped keywords',
-    icon: '🔑',
+    icon: '1',
   },
   {
     id: 'gmb' as GenerationStep,
     label: 'Crafting GMB Post',
     desc: 'Writing a publish-ready Google Business post with your keywords',
-    icon: '📝',
+    icon: '2',
   },
   {
     id: 'description' as GenerationStep,
     label: 'Writing SEO Description',
     desc: 'Composing a 3-paragraph SEO-optimized business description',
-    icon: '📄',
+    icon: '3',
   },
 ];
 
@@ -51,12 +51,11 @@ export function LoadingState({ currentStep }: LoadingStateProps) {
   const progress = getProgress(currentStep);
 
   return (
-    <div className="card" style={{ maxWidth: '760px', margin: '0 auto' }}>
-      <div className="card-header">
-        <div className="card-icon card-icon-violet">⚡</div>
-        <div>
-          <div className="card-title">AI Generation in Progress</div>
-          <div className="card-subtitle">This takes about 15–25 seconds. Please wait…</div>
+    <div className="card" style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'left' }}>
+      <div className="card-header" style={{ justifyContent: 'center', marginBottom: '28px' }}>
+        <div style={{ textAlign: 'center' }}>
+          <div className="card-title" style={{ fontSize: '1.2rem', marginBottom: '4px' }}>AI Generation in Progress</div>
+          <div className="card-subtitle">This takes about 15–25 seconds. Please wait.</div>
         </div>
       </div>
 

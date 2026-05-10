@@ -49,7 +49,7 @@ export function History({ onNavigateToGenerate }: HistoryProps) {
             </p>
           </div>
           <button className="btn btn-primary" onClick={onNavigateToGenerate}>
-            ✨ New Generation
+            New Generation
           </button>
         </div>
 
@@ -81,7 +81,7 @@ export function History({ onNavigateToGenerate }: HistoryProps) {
               Your generated SEO content will appear here after you run your first generation.
             </p>
             <button className="btn btn-primary" onClick={onNavigateToGenerate}>
-              ✨ Generate First Content
+              Generate First Content
             </button>
           </div>
         )}

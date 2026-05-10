@@ -14,8 +14,7 @@ function App() {
       <nav className="navbar">
         <div className="navbar-inner">
           <a className="navbar-brand" href="#" onClick={() => setActivePage('generate')}>
-            <div className="navbar-brand-icon">🚀</div>
-            <span>LocalSEO AI</span>
+            <span className="navbar-brand-cursive"><span>LocalSEO AI</span></span>
           </a>
           <div className="navbar-nav">
             <button
@@ -23,14 +22,14 @@ function App() {
               className={`nav-link ${activePage === 'generate' ? 'active' : ''}`}
               onClick={() => setActivePage('generate')}
             >
-              ✨ Generate
+              Generate
             </button>
             <button
               id="nav-history"
               className={`nav-link ${activePage === 'history' ? 'active' : ''}`}
               onClick={() => setActivePage('history')}
             >
-              🗂️ History
+              History
             </button>
           </div>
         </div>

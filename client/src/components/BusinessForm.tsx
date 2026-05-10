@@ -163,7 +163,7 @@ export function BusinessForm({ onSubmit, isLoading }: BusinessFormProps) {
                 Generating...
               </>
             ) : (
-              <>✨ Generate SEO Content</>
+              <>Generate SEO Content</>
             )}
           </button>
         </div>
